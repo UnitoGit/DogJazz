@@ -8,6 +8,27 @@
     <title>Jazz Dog</title>
 </head>
 <body>
-    <audio src="Music/Jazz.mp3" autoplay="autoplay"></audio>
+<script>
+    const soundsFolder = "Music"
+
+const sounds = [
+    `${soundsFolder}/Jazz.mp3`
+]
+
+const playSound = async (sound) => {
+    await sound.play()
+}
+
+const playAllSounds = async (sounds) => {
+    sounds.forEach(async sound => {
+        var audio = new Audio(sound)
+        await playSound(audio)
+    })
+}
+
+document.addEventListener("click", async (ev) => {
+    await playAllSounds(sounds)
+})
+</script>
 </body>
 </html>
